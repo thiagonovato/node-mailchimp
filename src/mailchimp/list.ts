@@ -5,6 +5,11 @@ mailchimp.setConfig({
   server: process.env.MAIlCHIMP_SERVER
 });
 
-export async function callPing() {
-  return await mailchimp.ping.get();
+export default class List {
+  async ping() {
+    return mailchimp.ping.get();
+  }
+  async getAllLists() {
+    return mailchimp.lists.getAllLists()
+  }
 }
